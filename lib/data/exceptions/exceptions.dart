@@ -14,3 +14,7 @@ class LoginException extends ExceptionCustom {
 class LoginFailure extends ExceptionCustom {
   LoginFailure({super.messageError = "User tidak ditemukan !"});
 }
+
+class FetchDataException extends ExceptionCustom {
+  FetchDataException({required super.messageError});
+}

@@ -1,5 +1,6 @@
 import 'package:bigapp/core/params/login_param.dart';
 import 'package:bigapp/data/exceptions/exceptions.dart';
+import 'package:bigapp/data/models/login_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoadingLoginUserState());
       try {
         var result = await repo.loginUserRepo(params: event.params);
+        repo.setToken(result.token); // save token
+        emit(SuccessLoginUserState());
       } on LoginFailure catch (e) {
         emit(FailureLoginUserState(errorMessage: e.toString()));
       } catch (e) {

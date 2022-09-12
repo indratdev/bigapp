@@ -1,4 +1,5 @@
 import 'package:bigapp/config/routes.dart';
+import 'package:bigapp/core/bloc/listPengiriman_bloc/listpengiriman_bloc.dart';
 import 'package:bigapp/core/bloc/loginbloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => LoginBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ListpengirimanBloc(),
         ),
       ],
       child: MaterialApp(

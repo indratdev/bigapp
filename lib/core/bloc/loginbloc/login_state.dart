@@ -25,3 +25,5 @@ class LoadingLoginUserState extends LoginState {}
 class FailureLoginUserState extends FailureState {
   FailureLoginUserState({required super.errorMessage});
 }
+
+class SuccessLoginUserState extends LoginState {}
